@@ -4,15 +4,13 @@ import { Button, StyleSheet } from 'react-native';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 
-import GameRepository from '../restControllers/GameRepository'
+import GameRepository from '../Repositories/GameRepository'
+import GameView from '../view/GameView'
 
 export default function MainScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome!</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Button onPress={repository.GetAll} title="Get games"></Button>
-      <EditScreenInfo path="/screens/MainScreen.js" />
+      <GameView data={[]} loading={true}></GameView>
     </View>
   );
 }
