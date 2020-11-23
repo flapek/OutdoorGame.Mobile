@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Button, StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
+import GameComponent from '../components/GameComponent';
 import { Text, View } from '../components/Themed';
 
 import GameRepository from '../Repositories/GameRepository'
@@ -10,7 +11,7 @@ import GameView from '../view/GameView'
 export default function MainScreen() {
   return (
     <View style={styles.container}>
-      <GameView data={[]} loading={true}></GameView>
+      <GameComponent/>
     </View>
   );
 }

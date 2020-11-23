@@ -10,6 +10,7 @@ const GameView = (props: { data: any; loading: any; }) => {
     
     if (loading) {
         data = repo.GetAll()
+        loading = false
     }
 
     return (
