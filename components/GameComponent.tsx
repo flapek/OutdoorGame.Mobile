@@ -3,11 +3,19 @@ import { View, Text, Button, FlatList, ActivityIndicator, TouchableOpacity } fro
 
 import GameView from '../view/GameView'
 import LoadingView from '../view/LoadingView';
-import LoadinView from '../view/LoadingView'
+import Repository from '../Repositories/GameRepository'
+import Game from '../models/Game';
 
-const data: any = [];
+interface GameProps {
+}
+  
+interface GameState{
+    loading: boolean,
+    data: Game[]
+}
 
-export default class GameComponent extends Component{
+export default class GameComponent extends Component<GameProps, GameState>{
+    repo: Repository;
 
     constructor(prop: any){
         super(prop)
@@ -15,16 +23,21 @@ export default class GameComponent extends Component{
             loading: true,
             data: []
         }
+        this.repo = new Repository()
     }
 
+    async componentDidMount(){
+        this.setState({loading: false, data: await this.repo.GetAllAsync()});
+    }
 
     render() {
         return (
             <View>
-                <GameView data={data}/>
-                (this.state.loading && <LoadingView/>)
+                <GameView data={this.state.data}/>
+                {this.state.loading && <LoadingView/>}
             </View>
         )
     }
+
 }
 

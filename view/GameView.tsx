@@ -1,18 +1,9 @@
-import React, { Component } from 'react'
-import { View, Text, Button, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
+import React from 'react'
+import { View, Text, FlatList, TouchableOpacity, ListRenderItemInfo } from 'react-native';
+import Game from '../models/Game';
 
-import Repository from '../Repositories/GameRepository'
-
-const repo = new Repository();
-
-const GameView = (props: { data: any; loading: any; }) => {
-    var { data, loading } = props
+const GameView = (data: Game[]) => {
     
-    if (loading) {
-        data = repo.GetAll()
-        loading = false
-    }
-
     return (
         <View>
             <FlatList
@@ -21,22 +12,15 @@ const GameView = (props: { data: any; loading: any; }) => {
                 renderItem={item => renderItem(item)}
                 keyExtractor={item => item.id.toString()}
             />
-            {loading &&
-                <View>
-                    <ActivityIndicator size="large" color="#0c9" />
-                    <Text>Loading Data</Text>
-                </View>
-            }
         </View>
     )
 }
 
-var renderItem = (data: any) => {
+var renderItem = (data: ListRenderItemInfo<Game>) => {
     return (
         <TouchableOpacity >
+            <Text>{data.item.id}</Text>
             <Text>{data.item.name}</Text>
-            <Text>{data.item.email}</Text>
-            <Text>{data.item.company.name}</Text>
         </TouchableOpacity>
     )
 }

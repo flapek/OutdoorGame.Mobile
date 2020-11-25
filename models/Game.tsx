@@ -6,14 +6,30 @@ class Game {
     questionId: string[];
     waypoints: Waypoint[]
 
-    constructor() {
-        this.id = "",
-        this.name = "",
-        this.questionId = [],
-        this.waypoints = []
+    constructor(id:string, name:string, questionId: string[], waypoints: Waypoint[]) {
+        this.id = id;
+        this.name = name;
+        this.questionId = questionId;
+        this.waypoints = waypoints;
     }
     
-    GetWaypoint(){
+    setId(id: string){
+        this.id = id;
+    }
+
+
+    setName(name: string){
+        this.name = name;
+    }
+
+    
+    setQuestionId(questionId: string[]){
+        this.questionId = questionId;
+    }
+
+    
+    setWaypoints(waypoints: Waypoint[]){
+        this.waypoints = waypoints;
     }
 }
 export default Game;
