@@ -1,12 +1,10 @@
 import * as React from 'react';
-import { Button, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
 import GameComponent from '../components/GameComponent';
-import { Text, View } from '../components/Themed';
+import { View } from '../components/Themed';
 
 import GameRepository from '../Repositories/GameRepository'
-import GameView from '../view/GamesView'
 
 export default function MainScreen() {
   return (
