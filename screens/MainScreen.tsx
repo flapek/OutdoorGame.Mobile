@@ -13,6 +13,10 @@ interface MainState{
 
 export default class MainScreen extends Component<MainProps, MainState> {
   
+  constructor (props: any){
+    super(props);
+  }
+
   render() {
     return (
       <View style={styles.container}>
