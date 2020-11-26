@@ -1,15 +1,25 @@
-import * as React from 'react';
+import React, { Component } from 'react'
 import { StyleSheet } from 'react-native';
 
 import GameComponent from '../components/GameComponent';
 import { View } from '../components/Themed';
 
-export default function MainScreen() {
-  return (
-    <View style={styles.container}>
-      <GameComponent/>
-    </View>
-  );
+interface MainProps {
+}
+  
+interface MainState{
+}
+
+
+export default class MainScreen extends Component<MainProps, MainState> {
+  
+  render() {
+    return (
+      <View style={styles.container}>
+        <GameComponent/>
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
