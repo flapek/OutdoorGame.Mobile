@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Text, FlatList, TouchableOpacity, ListRenderItemInfo } from 'react-native';
-import Game from '../models/Game';
 import IGame from '../models/interfaces/IGame';
 
 function GameView(data: IGame[]): JSX.Element {
@@ -10,19 +9,18 @@ function GameView(data: IGame[]): JSX.Element {
                 data={data}
                 // ItemSeparatorComponent={FlatListItemSeparator}
                 renderItem={item => renderItem(item)}
-                keyExtractor={item => item.id.toString()}
-            />
+                keyExtractor={item => item.id.toString()} />
         </View>
-    )
+    );
 }
 
-var renderItem = (data: ListRenderItemInfo<IGame>) => {
+function renderItem(data: ListRenderItemInfo<IGame>) : JSX.Element {
     return (
-        <TouchableOpacity >
+        <TouchableOpacity>
             <Text>{data.item.id}</Text>
             <Text>{data.item.name}</Text>
         </TouchableOpacity>
-    )
+    );
 }
 
 export default GameView;

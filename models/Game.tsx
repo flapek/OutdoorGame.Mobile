@@ -8,7 +8,7 @@ class Game implements IGame{
     questionId: string[];
     waypoints: IWaypoint[];
 
-    constructor(id:string, name:string, questionId: string[], waypoints: Waypoint[]) {
+    constructor({ id, name, questionId, waypoints }: { id: string; name: string; questionId: string[]; waypoints: Waypoint[]; }) {
         this.id = id;
         this.name = name;
         this.questionId = questionId;
