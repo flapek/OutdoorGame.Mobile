@@ -11,13 +11,10 @@ export default class GameRepository {
         var apiCall = await fetch(`${this.apiUrl}Game`);
         var response = await apiCall.json();
         var games: Game[] = []
-
         for (let index = 0; index < response.gamesDtos.length; index++) {
             const element = response.gamesDtos[index];
             games.push(new Game({id: element.id, name: element.name, questionId: [], waypoints: []}))
         }
-        console.log(games)
-
         return games;
     }
 }
