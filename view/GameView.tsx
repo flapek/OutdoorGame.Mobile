@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, Text, FlatList, TouchableOpacity, ListRenderItemInfo } from 'react-native';
 import Game from '../models/Game';
+import IGame from '../models/interfaces/IGame';
 
-const GameView = (data: Game[]) => {
-    
+function GameView(data: IGame[]): JSX.Element {
     return (
         <View>
             <FlatList
@@ -16,7 +16,7 @@ const GameView = (data: Game[]) => {
     )
 }
 
-var renderItem = (data: ListRenderItemInfo<Game>) => {
+var renderItem = (data: ListRenderItemInfo<IGame>) => {
     return (
         <TouchableOpacity >
             <Text>{data.item.id}</Text>

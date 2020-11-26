@@ -4,14 +4,14 @@ import { View, Text, Button, FlatList, ActivityIndicator, TouchableOpacity } fro
 import GameView from '../view/GameView'
 import LoadingView from '../view/LoadingView';
 import Repository from '../Repositories/GameRepository'
-import Game from '../models/Game';
+import IGame from '../models/interfaces/IGame';
 
 interface GameProps {
 }
   
 interface GameState{
     loading: boolean,
-    data: Game[]
+    data: IGame[]
 }
 
 export default class GameComponent extends Component<GameProps, GameState>{

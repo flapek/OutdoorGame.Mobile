@@ -10,6 +10,7 @@ class GameRepository {
     async GetAllAsync(): Promise<Game[]> {
         var apiCall = await fetch(apiUrl + "Game");
         var response: Promise<Game[]> = await apiCall.json();
+        console.log(response);
         return response;
     }
 }

@@ -1,5 +1,5 @@
-class Waypoint{
+import IWaypoint from "./interfaces/IWaypoint";
+
+export default class Waypoint implements IWaypoint{
 
 }
-
-export default Waypoint;
