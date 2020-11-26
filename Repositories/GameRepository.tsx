@@ -8,28 +8,16 @@ export default class GameRepository {
     }
 
     async GetAllAsync(): Promise<Game[]> {
-        var apiCall = await fetch(this.apiUrl + "Game");
-        var response: Promise<Game[]> = await apiCall.json();
-        console.log(response);
-        return response;
+        var apiCall = await fetch(`${this.apiUrl}Game`);
+        var response = await apiCall.json();
+        var games: Game[] = []
+
+        for (let index = 0; index < response.gamesDtos.length; index++) {
+            const element = response.gamesDtos[index];
+            games.push(new Game({id: element.id, name: element.name, questionId: [], waypoints: []}))
+        }
+        console.log(games)
+
+        return games;
     }
-
-    GetAll(): IGame[] {
-        let result: IGame[] = [];
-        fetch(this.apiUrl + "Game")
-        .then(response => response.json())
-        .then(data =>
-            result.push(new Game(
-                {
-                    id: data.id,
-                    name: data.name,
-                    questionId: data.questionId,
-                    waypoints: data.waypoints
-                }))        
-        )
-        .catch(error => console.log(error));
-
-        return result;
-    }
-
 }

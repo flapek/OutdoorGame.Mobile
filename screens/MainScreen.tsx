@@ -6,7 +6,7 @@ import GameComponent from '../components/GameComponent';
 import { Text, View } from '../components/Themed';
 
 import GameRepository from '../Repositories/GameRepository'
-import GameView from '../view/GameView'
+import GameView from '../view/GamesView'
 
 export default function MainScreen() {
   return (

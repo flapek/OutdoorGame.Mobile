@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { View, Text, Button, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 
-import GameView from '../view/GameView'
+import GameView from '../view/GamesView'
 import LoadingView from '../view/LoadingView';
 import Repository from '../Repositories/GameRepository'
 import IGame from '../models/interfaces/IGame';
@@ -11,6 +11,7 @@ interface GameProps {
   
 interface GameState{
     loading: boolean,
+    showGameList: boolean,
     data: IGame[]
 }
 
@@ -21,14 +22,15 @@ export default class GameComponent extends Component<GameProps, GameState>{
         super(prop)
         this.state = {
             loading: true,
+            showGameList: false,
             data: []
         }
         this.repo = new Repository()
     }
 
     async componentDidMount(){
-        let data: IGame[] = this.repo.GetAll();
-        this.setState({loading: false, data: data});
+        let data: IGame[] = await this.repo.GetAllAsync();
+        this.setState({loading: false, showGameList: true, data: data});
     }
 
     render() {
