@@ -3,12 +3,17 @@ import { View, Text, FlatList, TouchableOpacity, ListRenderItemInfo } from 'reac
 import IGame from '../models/interfaces/IGame';
 
 export default function GameView({ data } : {data: IGame[]}): JSX.Element {
+    console.log("Data size", data.length)
+
     return (
         <View>
+            <Text></Text>
             <FlatList
                 data={data}
                 ItemSeparatorComponent={() => ( <View></View> )}
-                renderItem={({ item }) => renderItem(item)}
+                renderItem={({ item }) => (
+                    <Text>{ item }</Text>
+                )}
                 keyExtractor={item => item.id.toString()} />
         </View>
     );

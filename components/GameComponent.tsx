@@ -27,7 +27,8 @@ export default class GameComponent extends Component<GameProps, GameState>{
     }
 
     async componentDidMount(){
-        this.setState({loading: false, data: await this.repo.GetAllAsync()});
+        let data: IGame[] = this.repo.GetAll();
+        this.setState({loading: false, data: data});
     }
 
     render() {
