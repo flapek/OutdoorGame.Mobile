@@ -1,18 +1,16 @@
 import Game from "../models/Game";
 
-const apiUrl = 'http://localhost:10000/api/';
 
-class GameRepository {
+export default class GameRepository {    
+    private apiUrl = 'http://localhost:10000/api/';
 
     constructor(){
     }
 
     async GetAllAsync(): Promise<Game[]> {
-        var apiCall = await fetch(apiUrl + "Game");
+        var apiCall = await fetch(this.apiUrl + "Game");
         var response: Promise<Game[]> = await apiCall.json();
         console.log(response);
         return response;
     }
 }
-
-export default GameRepository;
